@@ -29,11 +29,13 @@ module.exports = function (opts) {
         var name = path.basename(_f, '.csv')
           , bs = new stream.PassThrough
 
+        metadata[name] = []
+
         bs.end(files[_f].contents)
 
         bs.pipe(csv(opts.parserOpts))
           .on('data', function (d) {
-            (metadata[name] || (metadata[name] = [])).push(d)
+            metadata[name].push(d)
           })
           .on('end', done)
       })(f)
