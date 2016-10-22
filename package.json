@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-csv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Metalsmith plugin to load csv data into global metadata — Edit",
   "main": "index.js",
   "scripts": {
