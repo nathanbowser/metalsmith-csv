@@ -1,0 +1,27 @@
+{
+  "name": "metalsmith-csv",
+  "version": "1.0.0",
+  "description": "Metalsmith plugin to load csv data into global metadata — Edit",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanbowser/metalsmith-csv.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanbowser/metalsmith-csv/issues"
+  },
+  "homepage": "https://github.com/nathanbowser/metalsmith-csv#readme",
+  "devDependencies": {
+    "tape": "^4.6.2"
+  },
+  "dependencies": {
+    "csv-streamify": "^3.0.4",
+    "event-stream": "^3.3.4",
+    "tape": "^4.6.2"
+  }
+}
