@@ -1,14 +1,15 @@
 var test = require('tape').test
   , csv = require('../')
+  , fs = require('fs')
 
 test('adds csv to metadata', function (t) {
   var md = {}
     , files =  {
       'names.csv': {
-        path: __dirname + '/names.csv'
+        contents: fs.readFileSync(__dirname + '/names.csv')
       },
       'nested/gizmo.csv': {
-        path: __dirname + '/nested/gizmo.csv'
+        contents: fs.readFileSync(__dirname + '/nested/gizmo.csv')
       }
     }
     , ms = {

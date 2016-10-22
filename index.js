@@ -1,5 +1,5 @@
-var fs = require('fs')
-  , path = require('path')
+var path = require('path')
+  , stream = require('stream')
   , es = require('event-stream')
   , csv = require('csv-streamify')
 
@@ -24,10 +24,14 @@ module.exports = function (opts) {
       if (!files[f]) {
         return done()
       }
+
       (function (_f) {
         var name = path.basename(_f, '.csv')
-        fs.createReadStream(files[_f].path)
-          .pipe(csv(opts.parserOpts))
+          , bs = new stream.PassThrough
+
+        bs.end(files[_f].contents)
+
+        bs.pipe(csv(opts.parserOpts))
           .on('data', function (d) {
             (metadata[name] || (metadata[name] = [])).push(d)
           })
